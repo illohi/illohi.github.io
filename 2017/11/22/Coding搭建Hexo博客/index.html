@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="生命不止，折腾不息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding搭建Hexo博客">
+<meta property="og:url" content="http://yoursite.com/2017/11/22/Coding%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="iLLoHi">
+<meta property="og:description" content="生命不止，折腾不息">
+<meta property="og:image" content="https://i.loli.net/2017/11/22/5a15968da09fd.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/11/22/5a159818b8e08.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/11/22/5a159e4b165fb.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/11/23/5a15a1f7eea67.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/11/23/5a15a70fbf515.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/11/23/5a15ab98a4dc8.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/11/23/5a15ad5010fc3.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/11/24/5a183f14c5eeb.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/11/24/5a183f68c33dd.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/11/24/5a183f9e2046c.jpg">
+<meta property="article:published_time" content="2017-11-22T14:52:13.000Z">
+<meta property="article:modified_time" content="2017-11-24T15:49:59.204Z">
+<meta property="article:author" content="iLLoHi">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2017/11/22/5a15968da09fd.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/22/Coding搭建Hexo博客/"/>
+
+
+
+
+
+  <title>Coding搭建Hexo博客 | iLLoHi</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iLLoHi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">尝试写点东西</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/Coding%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iLLoHi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/gintama.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iLLoHi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Coding搭建Hexo博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T22:52:13+08:00">
+                2017-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%BA%E7%94%9F%E5%87%A0%E5%9B%9E/" itemprop="url" rel="index">
+                    <span itemprop="name">人生几回</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>生命不止，折腾不息</p>
+<a id="more"></a>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>看着自己的博客空荡荡的所以水一篇搭建本博客Hexo的流程，就当复习一遍。我最早是搭建在GitHub上的后来发现国产的coding国内访问的话速度更快，而且可以一键上SSL和强制跳转https比较方便所以又换成coding了<br>然后参考了以下的教程：</p>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">文档 | Hexo</a></li>
+<li><a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="noopener">小白独立搭建博客–Github Pages和Hexo简明教程</a></li>
+</ul>
+<h1 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h1><ul>
+<li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+</ul>
+<p><strong>1. 安装Node.js</strong><br>按上面链接点进去如图下载下来安装<img src="https://i.loli.net/2017/11/22/5a15968da09fd.jpg" alt=""></p>
+<p><strong>2. 安装Git</strong><br>同上进入下载界面<img src="https://i.loli.net/2017/11/22/5a159818b8e08.jpg" alt=""></p>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p><strong>1. 桌面右键鼠标，选择Git Bash Here输入或粘贴以下命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
+<p><strong>2. 安装完成后，建立目录（比如我是这个路径C:\Blog\Hexo），进入C:\Blog\Hexo文件夹下右键鼠标，选择Git Bash Here，输入或粘贴以下命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p><strong>3. 安装Hexo插件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-index --save</span><br><span class="line">npm install hexo-generator-archive --save</span><br><span class="line">npm install hexo-generator-category --save</span><br><span class="line">npm install hexo-generator-tag --save</span><br><span class="line">npm install hexo-server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-deployer-heroku --save</span><br><span class="line">npm install hexo-deployer-rsync --save</span><br><span class="line">npm install hexo-deployer-openshift --save</span><br><span class="line">npm install hexo-renderer-marked@0.2 --save</span><br><span class="line">npm install hexo-renderer-stylus@0.2 --save</span><br><span class="line">npm install hexo-generator-feed@1 --save</span><br><span class="line">npm install hexo-generator-sitemap@1 --save</span><br></pre></td></tr></table></figure>
+<p><strong>4. 执行下面命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p><strong>5. 在浏览器输入localhost:4000查看是否安装成功</strong><br><img src="https://i.loli.net/2017/11/22/5a159e4b165fb.jpg" alt=""></p>
+<h1 id="将本地博客部署到Coding-Pages上"><a href="#将本地博客部署到Coding-Pages上" class="headerlink" title="将本地博客部署到Coding Pages上"></a>将本地博客部署到Coding Pages上</h1><p><strong>1. Coding是什么？</strong></p>
+<p>Coding Pages可以被认为是用户编写的、托管在Coding上的静态网页。可以绑定你的域名，Coding Pages可以为你提供一个免费的服务器，你可以使用它来做博客。</p>
+<p><strong>2. 注册Coding</strong></p>
+<ul>
+<li><a href="https://coding.net/register" target="_blank" rel="noopener">Coding注册</a><br>假如你没有Coding账号你需要登录上面那个链接注册自己的账号，随后在 Coding中创建一个项目，需要注意的是项目名和用户名一样. 就可以使用 username.coding.me访问发布的网站, 否则则是 username.coding.me/projectname,比如我的用户名为：test，那么这个项目名称也是test，剩下的选项<img src="https://i.loli.net/2017/11/23/5a15a1f7eea67.jpg" alt=""></li>
+</ul>
+<p><strong>3. 开启Pages服务</strong><br>进入项目页面的“代码-Pages服务”那一栏,立即开启. 默认使用了coding-pages分支</p>
+<p><strong>4. 绑定SSH公钥</strong><br>检查是否已经有SSH Key，打开Git Bash Here，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>如果没有.ssh这个目录，则我们生成一个SSH，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"你的邮箱"</span></span><br></pre></td></tr></table></figure>
+<p>接下来几步中系统会要你输入密码,相关提示如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): [Type a passphrase]</span><br><span class="line">Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure>
+<p>查看公钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>然后将里面的内容复制粘贴到Coding-账户-SSH公钥里后添加即可<br><img src="https://i.loli.net/2017/11/23/5a15a70fbf515.jpg" alt=""><br><strong>5. 验证SSH公钥</strong><br>设置自己的个人信息，这里设置自己的名字和邮箱</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure>
+
+<p>在Git Bash Here 中输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@git.coding.net</span><br></pre></td></tr></table></figure>
+<p>如果显示以下则说明coding中的ssh配置成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello username You<span class="string">'ve connected to Coding.net by SSH successfully!</span></span><br></pre></td></tr></table></figure>
+<p><strong>6. 配置hexo的deploy方式</strong><br>在一开始hexo生成的blog目录下面找到_config.yml<br>我们找到deploy这一项，修改看下面：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo:</span><br><span class="line">    coding: git@git.coding.net:username/projectname.git,coding-pages</span><br></pre></td></tr></table></figure>
+<p><strong>7. 在Hexo文件夹下执行：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>或者合并成一条命令执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<p>这样就大功告成了</p>
+<h1 id="如何发表文章"><a href="#如何发表文章" class="headerlink" title="如何发表文章"></a>如何发表文章</h1><p><strong>1. 每次发新闻章就在C:\Blog\Hexo文件夹下右键鼠标，选择Git Bash Here后执行以下命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"文章标题"</span></span><br></pre></td></tr></table></figure>
+<p><strong>2. 在给出的路径里打开.md文件（我用的vscode编辑）</strong><br><img src="https://i.loli.net/2017/11/23/5a15ab98a4dc8.jpg" alt=""><br><strong>3. 文章可以用markdown语法写作，写完之后部署的命令是</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<p>稍等片刻就发布成功了，访问username.coding.me或者username.coding.me/projectname就能看到了</p>
+<h1 id="自定义域名和上SSL"><a href="#自定义域名和上SSL" class="headerlink" title="自定义域名和上SSL"></a>自定义域名和上SSL</h1><p>在我的项目-代码-Pages服务里<br><img src="https://i.loli.net/2017/11/23/5a15ad5010fc3.jpg" alt=""><br>下面还有个强制HTTPS访问也可以开启，开启后输入你的域名就能自动跳转到https访问。</p>
+<h1 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h1><p>Hexo的主题丰富多彩，我使用的是<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a><br>这个主题的教程非常详细，真的是超级详细！</p>
+<h1 id="去除Coding-Pages跳转页"><a href="#去除Coding-Pages跳转页" class="headerlink" title="去除Coding Pages跳转页"></a>去除Coding Pages跳转页</h1><p>Coding虽然是免费的但是银牌会员的 Coding Pages 在访问时默认会先加载 Pages 跳转页，不过没关系，官方有个解决办法，就是我们的博客里放置<code>Hosted by Coding Pages</code>就能去掉跳转页了，具体操作就是在hexo主题文件下layout/_partials/编辑这个文件footer.swig，如图：<br><img src="https://i.loli.net/2017/11/24/5a183f14c5eeb.jpg" alt=""><br>然后呢，添加这段代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style=<span class="string">"margin:0 0;"</span>&gt;Hosted by &lt;a href=<span class="string">"https://pages.coding.me"</span> style=<span class="string">"font-weight: bold"</span>&gt;Coding Pages&lt;/a&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2017/11/24/5a183f68c33dd.jpg" alt=""><br>保存上传部署后在到Coding里给<code>已放置 Hosted by Coding Pages</code>打勾✓<br><img src="https://i.loli.net/2017/11/24/5a183f9e2046c.jpg" alt=""><br>一般第二天就审核通过了</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>如果本文有什么错误或者不明白的地方，可以联系我。ps:最上面<code>关于</code>里有我邮箱</p>
+<hr>
+<p>代码高亮我竟然把’当成`难怪怎么搞也不亮😂</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=481523512&auto=1&height=66"></iframe>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/31/%E4%B9%9D%E6%9C%88%E5%8D%81%E4%BA%8C%C2%B7%E6%9C%AD/" rel="next" title="九月十二·札">
+                <i class="fa fa-chevron-left"></i> 九月十二·札
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/30/%E5%8D%81%E6%9C%88%E5%8D%81%E4%B8%89%C2%B7%E6%9C%AD/" rel="prev" title="十月十三·札">
+                十月十三·札 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/gintama.png"
+                alt="iLLoHi" />
+            
+              <p class="site-author-name" itemprop="name">iLLoHi</p>
+              <p class="site-description motion-element" itemprop="description">保持一颗好奇心</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境安装"><span class="nav-number">2.</span> <span class="nav-text">环境安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Hexo"><span class="nav-number">3.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将本地博客部署到Coding-Pages上"><span class="nav-number">4.</span> <span class="nav-text">将本地博客部署到Coding Pages上</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何发表文章"><span class="nav-number">5.</span> <span class="nav-text">如何发表文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义域名和上SSL"><span class="nav-number">6.</span> <span class="nav-text">自定义域名和上SSL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题美化"><span class="nav-number">7.</span> <span class="nav-text">主题美化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#去除Coding-Pages跳转页"><span class="nav-number">8.</span> <span class="nav-text">去除Coding Pages跳转页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">9.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iLLoHi</span>
+  <p style="margin:0 0;">Hosted by <a href="https://pages.coding.me" target="_blank" rel="noopener" style="font-weight: bold">Coding Pages</a></p>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
